@@ -24,6 +24,28 @@ body {
             border: 0px;
             border-radius: 10px;
             box-shadow: inset 2px 3px 5px 0px rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 5px;
+
+            #res {
+                height: 20.8px;
+                text-align: right;
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: 400;
+                margin: 5px;
+            }
+            #inter {
+                height: 20.8px;
+                text-align: right;
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: 400;
+                margin: 5px;
+            }
+
         }
         .buttons {
             display: grid;
@@ -52,7 +74,7 @@ body {
             #op:hover {
                 background-color: cadetblue;
             }
-            #erase:hover {
+            .erase:hover {
                 background-color: firebrick;
             }
 
