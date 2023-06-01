@@ -102,31 +102,105 @@ function evaluate() {
 }
 
 function sumFunc() {
-    res = parseInt(first) + parseInt(second)
+    let f 
+    let s 
+    if(first.toString().includes('.')) {
+        f = parseFloat(first)
+    } else {
+        f = parseInt(first)
+    }
+    if(second.toString().includes('.')) {
+        s = parseFloat(second)
+    } else {
+        s = parseInt(second)
+    }
+
+    //res = parseInt(first) + parseInt(second)
+    res = f + s
+    res = roundResult(res)
     second = ''
     first = res
 }
 
 function subFunc() {
-    res = parseInt(first) - parseInt(second)
+    let f 
+    let s 
+    if(first.toString().includes('.')) {
+        f = parseFloat(first)
+    } else {
+        f = parseInt(first)
+    }
+    if(second.toString().includes('.')) {
+        s = parseFloat(second)
+    } else {
+        s = parseInt(second)
+    }
+
+    res = f - s
+    res = roundResult(res)
     second = ''
     first = res
 }
 
 function mulFunc() {
-    res = parseInt(first) * parseInt(second)
+    let f 
+    let s 
+    if(first.toString().includes('.')) {
+        f = parseFloat(first)
+    } else {
+        f = parseInt(first)
+    }
+    if(second.toString().includes('.')) {
+        s = parseFloat(second)
+    } else {
+        s = parseInt(second)
+    }
+
+    res = f * s
+    res = roundResult(res)
     second = ''
     first = res
 }
 
 function modFunc() {
-    res = parseInt(first) % parseInt(second)
+    let f 
+    let s 
+    if(first.toString().includes('.')) {
+        f = parseFloat(first)
+    } else {
+        f = parseInt(first)
+    }
+    if(second.toString().includes('.')) {
+        s = parseFloat(second)
+    } else {
+        s = parseInt(second)
+    }
+
+    res = f % s
+    res = roundResult(res)
     second = ''
     first = res
 }
 
 function divFunc() {
-    if(second === '0') { 
+    let f 
+    let s 
+    let zeroFlag = false
+    if(first.toString().includes('.')) {
+        f = parseFloat(first)
+    } else {
+        f = parseInt(first)
+    }
+    if(second.toString().includes('.')) {
+        s = parseFloat(second)
+        if(s === 0.0) zeroFlag = true
+    } else {
+        s = parseInt(second)
+        if (s === 0) zeroFlag = true
+    }
+
+
+    if(zeroFlag) { 
         first = 'No.'
         numButtons.forEach((button) => {
             button.disabled = true
@@ -142,7 +216,8 @@ function divFunc() {
         equalButton.disabled = true
         return
     }
-    res = parseInt(first) / parseInt(second)
+    res = f / s
+    res = roundResult(res)
     second = ''
     first = res
 }
@@ -207,7 +282,9 @@ function equalFunc() {
     equalButton.disabled = true
 }
 
-
+function roundResult(number) {
+    return Math.round(number * 1000) / 1000
+}
 
 // ----------------
 // Event Listeners
