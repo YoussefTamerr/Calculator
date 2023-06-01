@@ -17,7 +17,7 @@ const equalButton = document.getElementById('equal')
 const clearButton = document.getElementById('AC')
 const delButton = document.getElementById('C')
 
-const resultCont = document.getElementById('res')
+//const resultCont = document.getElementById('res')
 const inter = document.getElementById('inter')
 
 // ----------------
@@ -98,7 +98,7 @@ function evaluate() {
     }
     opFirst = op
     inter.textContent = first
-    resultCont.textContent = first
+    //resultCont.textContent = first
 }
 
 function sumFunc() {
@@ -128,6 +128,18 @@ function modFunc() {
 function divFunc() {
     if(second === '0') { 
         first = 'No.'
+        numButtons.forEach((button) => {
+            button.disabled = true
+        })
+        
+        opButtons.forEach((button) =>{
+            button.disabled = true
+        })
+        delButton.disabled = true
+    
+        dot.disabled = true
+    
+        equalButton.disabled = true
         return
     }
     res = parseInt(first) / parseInt(second)
@@ -143,7 +155,7 @@ function clearFunc() {
     opFirst = ''
 
     inter.textContent = ''
-    resultCont.textContent = ''
+    //resultCont.textContent = ''
 
     numButtons.forEach((button) => {
         button.disabled = false
@@ -180,7 +192,7 @@ function delFunc() {
 
 function equalFunc() {
     evaluate()
-    resultCont.textContent = first
+    //resultCont.textContent = first
     numButtons.forEach((button) => {
         button.disabled = true
     })
